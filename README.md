@@ -40,7 +40,7 @@ Taken together, the Acts and Regulations have 113,611 labeled paragraphs, coveri
 
 # Results
 
-Here is an example of the reuslts on ten randomly selected paragraphs from the test set. The predicted labels are given in bold with the actual labels following in parentheses:
+Here is an example of the results on ten randomly selected paragraphs from the test set. The predicted labels are given in bold with the actual labels following in parentheses:
 
 1. the minister shall cause a notice of removal to be served on the person in respect of whom a notation is removed pursuant to subsection .  __duty to notify__ (duty to notify)
 
