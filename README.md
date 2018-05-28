@@ -87,6 +87,9 @@ small_titles = soup.find_all('h6')
 
 `build_training_files.py:` Strip away punctuation (except periods), and sort randomly into train, test, and dev set, taking the first 50 words in each label and the first 200 in each paragraph. Build a vocabulary for the input and output (these could be shared, I have not examined the difference). The vocabulary consists of all words appearing more than once in each set. Others are treated as unknown. There are 14719 tokens making up the input vocabulary and 6522 making up the output vocabulary (so the model does cheat a bit by constraining the output to what we know is going to be in it). 
                  
+# Running it
+
+The way I trained it was on an AWS p2.xlarge instance, running the Deep Learning (Ubuntu) AMI. I didn't have to modify the NMT tutorial. 
 
 
 
