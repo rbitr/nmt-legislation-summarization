@@ -89,10 +89,67 @@ small_titles = soup.find_all('h6')
                  
 # Running it
 
-The way I trained it was on an AWS p2.xlarge instance, running the Deep Learning (Ubuntu) AMI. I didn't have to modify the NMT tutorial. 
+The way I trained it was on an AWS p2.xlarge instance, running the Deep Learning (Ubuntu) AMI. To run the tutorial code requires the TensorFlow nighlty distribution, which can be executed in a virtual environment as follows:
 
+```
+virtualenv --system-site-packages -p python3 ~/tensorflow
+source ~/tensorflow/bin/activate 
+easy_install -U pip
+pip3 install tf-nightly-gpu 
+```
 
+To get set up:
 
+```
+mkdir acts_tf
+cd acts_tf
+mkdir html # first run, to store the html files pulled down from the internet
+mkdir data
+python web_scrape.py
+python extract_html_data.py
+python build_training_files.py
+```
+Optionally, re-run web_scrape and extract_html_data for the regulations, concatenate the output files with the ones resulting from the first run, and then build the training files.
 
+Create a temp directory for the run and copy the data over:
+
+```
+cd ~/
+mkdir /tmp/data
+cp acts_tf/data/*.* /tmp/data
+mkdir /tmp/nmt_model_acts
+```
+
+And train the model (about 5 hrs):
+
+```
+python -m nmt.nmt \
+    --src=in --tgt=out \
+    --vocab_prefix=/tmp/data/vocab  \
+    --train_prefix=/tmp/data/train \
+    --dev_prefix=/tmp/data/test  \
+    --test_prefix=/tmp/data/dev \
+    --out_dir=/tmp/nmt_model_acts \
+    --num_train_steps=40000 \
+    --steps_per_stats=100 \
+    --num_layers=2 \
+    --num_units=128 \
+    --dropout=0.2 \
+    --metrics=bleu
+````
+
+Run tensorboard to monitor:
+```
+tensorboard --port 8888 --logdir /tmp/nmt_model_acts/
+```
+
+Put random lines into inference_text.in (you could use compare_io.py to get some lines), then:
+
+```
+python -m nmt.nmt \
+    --out_dir=/tmp/nmt_model_acts \
+    --inference_input_file=acts_tf/inference_text.in \
+    --inference_output_file=acts_tf/inference_result.txt
+```
 
 
