@@ -1,0 +1,6 @@
+model_checkpoint_path: "/tmp/nmt_model_acts/translate.ckpt-40000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/translate.ckpt-36000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/translate.ckpt-37000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/translate.ckpt-38000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/translate.ckpt-39000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/translate.ckpt-40000"
