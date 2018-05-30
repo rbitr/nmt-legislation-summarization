@@ -85,7 +85,7 @@ small_titles = soup.find_all('h6')
                      summary.append(' '.join(ts.next_sibling.find_all(text=True)))
 ```
 
-`build_training_files.py:` Strip away punctuation (except periods), and sort randomly into train, test, and dev set, taking the first 50 words in each label and the first 200 in each paragraph. Build a vocabulary for the input and output (these could be shared, I have not examined the difference). The vocabulary consists of all words appearing more than once in each set. Others are treated as unknown. There are 14719 tokens making up the input vocabulary and 6522 making up the output vocabulary (so the model does cheat a bit by constraining the output to what we know is going to be in it). 
+`build_training_files.py:` Strip away punctuation (except periods), and sort randomly into train, test, and dev set, taking the first 50 words in each label and the first 200 in each paragraph. Build a vocabulary for the input and output (these could be shared, I have not examined the difference). The vocabulary consists of all words appearing more than once in each set. Others are treated as unknown. There are 14719 tokens making up the input vocabulary and 6522 making up the output vocabulary (so the model does cheat a bit by constraining the output to what we know is going to be in it). _Update, re-ran it with the input vocabulary as the shared vocabulary, it does not appreciably change the Blue score (17.71) or the qualitative results
                  
 # Running it
 
