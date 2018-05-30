@@ -1,0 +1,6 @@
+model_checkpoint_path: "/tmp/nmt_model_acts/best_bleu/translate.ckpt-40000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/best_bleu/translate.ckpt-29000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/best_bleu/translate.ckpt-30000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/best_bleu/translate.ckpt-31000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/best_bleu/translate.ckpt-36000"
+all_model_checkpoint_paths: "/tmp/nmt_model_acts/best_bleu/translate.ckpt-40000"
