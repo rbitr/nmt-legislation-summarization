@@ -152,7 +152,7 @@ python -m nmt.nmt \
     --inference_output_file=acts_tf/inference_result.txt
 ```
 
-__Preliminary Results on Unrelated Data__
+# Preliminary Results on Unrelated Data 
 
 The real test of utility is whether text that has nothing to do with the training set can be labeled. The following 17 paragraphs are from the [City of Ottawa Bylaws](https://ottawa.ca/en/road-activity-law-no-2003-445), under "Road Cut Permit". Following each are the result, first in italics from the trained model used above, and second, in bold, from the model trained using the same vocabulary for the input and the output (the vocabulary used was the input vocabulary above). The results are poor, but are able to identify paragraphs relating to fees, notifications, obligations, etc (if this is all it does, there are probably better ways). 
 
